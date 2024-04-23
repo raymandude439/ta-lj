@@ -3,7 +3,7 @@ import 'package:fpdart/src/either.dart';
 import 'package:tugas_akhir_lj/data/datasources/ai_models_datasource.dart';
 import 'package:tugas_akhir_lj/data/datasources/fake/ai_models_fake_datasource.dart';
 import 'package:tugas_akhir_lj/data/models/ai_models.dart';
-import 'package:tugas_akhir_lj/domain/repository/ai_model_repository.dart';
+import 'package:tugas_akhir_lj/data/repository/ai_model_repository.dart';
 
 class AiModelsRepositoryImpl implements AiModelsRepository {
   final AiModelsDataSource aiModelsDataSource;

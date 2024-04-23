@@ -16,12 +16,12 @@ var aiModels = [
         RegressionCoefficient(
             id: 1,
             columnName: 'CHA',
-            columnCoefficient: 1.22142857
+            columnCoefficient: 1.21529529
         ),
         RegressionCoefficient(
             id: 2,
             columnName: 'HA',
-            columnCoefficient: 0.89095238
+            columnCoefficient: 0.87184282
         )
       ]
   ),

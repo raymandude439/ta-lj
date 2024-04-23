@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
+import 'package:tugas_akhir_lj/core/routes/route_name.dart';
 import 'package:tugas_akhir_lj/data/models/ai_models.dart';
 
 class PredictInputPage extends ConsumerStatefulWidget {
@@ -29,6 +31,7 @@ class _PredictInputPageState extends ConsumerState<PredictInputPage> {
 
   @override
   void dispose() {
+    textInputs.forEach((element) {element.dispose();});
     super.dispose();
   }
 
@@ -120,6 +123,20 @@ class _PredictInputPageState extends ConsumerState<PredictInputPage> {
                           widget.modelData.listRegressionCoefficient.length),
                   SizedBox(height: 10,),
                   InkWell(
+                    onTap: () {
+                      double total = 0;
+                      int index = 0;
+                      widget.modelData.listRegressionCoefficient.forEach((element) {
+                        total = total + element.columnCoefficient * double.parse(textInputs.elementAt(index).text);
+                        index++;
+                      });
+                      final List<String> input = [
+                        widget.modelData.modelName,
+                        widget.modelData.resultFormat,
+                        total.toString()
+                      ];
+                      ref.context.goNamed(RouteName.predictResult, extra: input);
+                    },
                     child: Container(
                       width: 1.sw,
                       decoration: BoxDecoration(

@@ -6,6 +6,7 @@ class RoutePath{
 
   static const String predict = "/predict";
   static const String predictInput = "input";
+  static const String predictResult = "result";
 
   static const String modelInfo = "/model_info";
 }

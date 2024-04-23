@@ -10,6 +10,7 @@ import 'package:tugas_akhir_lj/data/models/ai_models.dart';
 import 'package:tugas_akhir_lj/presentation/navigation/navigation.dart';
 import 'package:tugas_akhir_lj/presentation/predict/predict.dart';
 import 'package:tugas_akhir_lj/presentation/predict/predict_input.dart';
+import 'package:tugas_akhir_lj/presentation/predict/predict_result.dart';
 
 final _rootNavigatorKey =
 GlobalKey<NavigatorState>(debugLabel: 'RootNavigator');
@@ -56,7 +57,19 @@ final routerProvider = Provider<GoRouter>((ref) {
                           context: context
                       );
                     },
-                  )
+                  ),
+                  GoRoute(
+                    path: RouteName.predictResult,
+                    name: RouteName.predictResult,
+                    pageBuilder: (context, state) {
+                      return _tugasAkhirPage(
+                          child: PredictResultPage(
+                              result: state.extra as List<String>),
+                          state: state,
+                          context: context
+                      );
+                    },
+                  ),
                 ]
               ),
             ]
